@@ -78,7 +78,7 @@ class UnwuchtBerechnung:
         U_links, U_rechts = self.berechne_unwucht_momente()
         
         # Gesamtunwucht (Vektorsumme)
-        U_gesamt = np.sqrt(U_links**2 + U_rechts**2)
+        U_gesamt = (np.sqrt(U_links**2 + U_rechts**2)) / 1000
         
         return U_gesamt, U_links, U_rechts
     
@@ -133,7 +133,7 @@ class UnwuchtBerechnung:
         print(f"Gesamtunwucht: {U_gesamt:.4f} kg·cm")
         print(f"Unwucht links: {U_links * 1e7:.4f} mg·mm")
         print(f"Unwucht rechts: {U_rechts * 1e7:.4f} mg·mm")
-        print(f"Gesamtunwucht: {U_gesamt * 1e7:.4f} mg·mm")
+        print(f"Gesamtunwucht: {U_gesamt * 1e7:.4f} g·mm")
         
         A, _ = self.berechne_amplituden()
         print(f"\nAuslenkungsamplitude: {A * 10:.6f} mm")
